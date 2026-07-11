@@ -4,7 +4,7 @@ A modern, fully responsive portfolio website built from scratch with vanilla HTM
 
 ## Live Demo
 
-🔗 [View Live Site](https://nexusstudio.rs)
+🔗 [View Live Site](https://jenic02.github.io/website/)
 
 ## Features
 
