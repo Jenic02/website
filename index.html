@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <!-- ============================================
+         MOBILE / PWA OPTIMIZATION
+         ============================================ -->
+    <!-- Theme color for mobile browser chrome -->
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#09090b">
+    <!-- Apple mobile web app capable - allows adding to home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="NexusStudio">
+    <!-- Apple touch icon for iOS home screen -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%2309090b' width='100' height='100' rx='20'/><text x='50' y='65' text-anchor='middle' font-size='50' fill='%23818cf8'>N</text></svg>">
+    <!-- Microsoft tile -->
+    <meta name="msapplication-TileColor" content="#09090b">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Disable telephone number detection on iOS -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- Prevent Android auto-linking of addresses/emails -->
+    <meta name="format-detection" content="email=no,address=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>NexusStudio — Kreativna Digitalna Agencija | Web Design, Razvoj & Branding</title>
+    <meta name="description" content="NexusStudio je kreativna digital agencija koja pravi moderne web sajtove, aplikacije i brendove. Specijalizovani za UI/UX dizajn, front-end razvoj i digitalni marketing.">
+    <meta name="keywords" content="web dizajn, digital agencija, front-end razvoj, UI/UX, brending, SEO optimizacija, aplikacije, Srbija">
+    <meta name="author" content="NexusStudio">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://nexusstudio.rs/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nexusstudio.rs/">
+    <meta property="og:title" content="NexusStudio — Kreativna Digitalna Agencija">
+    <meta property="og:description" content="Moderne web stranice, aplikacije i brendovi. Specijalizovani za UI/UX dizajn i front-end razvoj.">
+    <meta property="og:image" content="https://nexusstudio.rs/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="NexusStudio">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://nexusstudio.rs/">
+    <meta name="twitter:title" content="NexusStudio — Kreativna Digitalna Agencija">
+    <meta name="twitter:description" content="Moderne web stranice, aplikacije i brendovi.">
+    <meta name="twitter:image" content="https://nexusstudio.rs/og-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "NexusStudio",
+        "url": "https://nexusstudio.rs",
+        "logo": "https://nexusstudio.rs/logo.svg",
+        "description": "Kreativna digital agencija za web dizajn, razvoj i brending.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Beograd",
+            "addressCountry": "RS"
+        },
+        "sameAs": [
+            "https://www.instagram.com/nexusstudio",
+            "https://www.linkedin.com/company/nexusstudio"
+        ]
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+
+    <!-- Web App Manifest for PWA support -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Preconnect for performance -->
+    <!-- Preconnect for faster resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader-inner">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <span class="loader-text">NEXUS</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header" role="banner">
+        <nav class="nav" aria-label="Glavna navigacija">
+            <a href="#" class="nav__logo" aria-label="NexusStudio početna">
+                <span class="logo-diamond">◆</span>
+                <span class="logo-text">NEXUS<span class="logo-accent">STUDIO</span></span>
+            </a>
+            <ul class="nav__links" id="navLinks" role="menubar">
+                <li role="none"><a href="#pocetna" class="nav__link active" role="menuitem">Home</a></li>
+                <li role="none"><a href="#o-nama" class="nav__link" role="menuitem">About</a></li>
+                <li role="none"><a href="#usluge" class="nav__link" role="menuitem">Services</a></li>
+                <li role="none"><a href="#projekti" class="nav__link" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#utisci" class="nav__link" role="menuitem">Testimonials</a></li>
+                <li role="none"><a href="#kontakt" class="nav__link" role="menuitem">Contact</a></li>
+            </ul>
+            <a href="#kontakt" class="nav__cta">Start a Project</a>
+            <button class="nav__burger" id="burger" aria-label="Otvori meni" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero" id="pocetna" aria-labelledby="hero-heading">
+            <div class="hero__bg">
+                <div class="hero__gradient-orb hero__gradient-orb--1" aria-hidden="true"></div>
+                <div class="hero__gradient-orb hero__gradient-orb--2" aria-hidden="true"></div>
+                <div class="hero__gradient-orb hero__gradient-orb--3" aria-hidden="true"></div>
+                <canvas class="hero__particles" id="particlesCanvas" aria-hidden="true"></canvas>
+            </div>
+            <div class="container hero__content">
+                <div class="hero__badge reveal-up">
+                    <span class="badge-dot"></span>
+                    Digital agency from Belgrade
+                </div>
+                <h1 class="hero__title" id="hero-heading">
+                    <span class="reveal-up">We create</span>
+                    <span class="reveal-up hero__title--outline">digital</span>
+                    <span class="reveal-up">experiences that</span>
+                    <span class="reveal-up hero__title--accent">leave an impression<span class="title-dot">.</span></span>
+                </h1>
+                <p class="hero__subtitle reveal-up">
+                    Od koncepta do lansiranja — dizajniramo web sajtove, aplikacije i brendove
+                    koji se izdvajaju u digitalnom svetu.
+                </p>
+                <div class="hero__actions reveal-up">
+                    <a href="#projekti" class="btn btn--primary">
+                        <span>View Projects</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                    <a href="#o-nama" class="btn btn--ghost">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+                <div class="hero__stats reveal-up">
+                    <div class="stat">
+                        <span class="stat__number" data-count="150">0</span><span class="stat__plus">+</span>
+                        <span class="stat__label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-count="98">0</span><span class="stat__percent">%</span>
+                        <span class="stat__label">Happy Clients</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-count="8">0</span><span class="stat__plus">+</span>
+                        <span class="stat__label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__scroll" aria-hidden="true">
+                <div class="scroll-line"></div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="o-nama" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag reveal-up">01 — About</span>
+                    <h2 class="section__title reveal-up" id="about-heading">
+                        We are a team that turns<br>
+                        <span class="text-gradient">ideas into digital reality</span>
+                    </h2>
+                </div>
+                <div class="about__grid">
+                    <div class="about__text reveal-left">
+                        <p class="about__lead">
+                            NexusStudio je kreativna digital agencija osnovana sa ciljem da pomogne
+                            kompanijama da se istaknu u digitalnom svetu.
+                        </p>
+                        <p>
+                            Verujemo da svaki brend zaslužuje jedinstvenu priču. Naš tim čine iskusni
+                            dizajneri, programeri i strategi koji rade zajedno na kreiranju rešenja
+                            koja ne samo da izgledaju sjajno, već i ostvaruju merljive rezultate.
+                        </p>
+                        <p>
+                            Od malih startupa do velikih korporacija — prilagođavamo se vašim potrebama
+                            i donosimo inovativna rešenja koja pokreću vaš posao napred.
+                        </p>
+                        <div class="about__values">
+                            <div class="value-card">
+                                <div class="value-card__icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                </div>
+                                <h3>Innovation</h3>
+                                <p>We stay on top of the latest trends and technologies.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-card__icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                </div>
+                                <h3>Reliability</h3>
+                                <p>We always meet deadlines and keep our promises.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-card__icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </div>
+                                <h3>Passion</h3>
+                                <p>We love what we do — and it shows.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about__visual reveal-right">
+                        <div class="about__image-wrapper">
+                            <div class="about__shape" aria-hidden="true"></div>
+                            <div class="about__code-block" aria-hidden="true">
+                                <div class="code-header">
+                                    <span class="dot dot--red"></span>
+                                    <span class="dot dot--yellow"></span>
+                                    <span class="dot dot--green"></span>
+                                </div>
+                                <pre><code><span class="code-purple">const</span> <span class="code-blue">studio</span> = {
+  <span class="code-green">ime</span>: <span class="code-string">"NexusStudio"</span>,
+  <span class="code-green">fokus</span>: [<span class="code-string">"dizajn"</span>, <span class="code-string">"kod"</span>],
+  <span class="code-green">misija</span>: () => {
+    <span class="code-purple">return</span> <span class="code-string">"digitalni"</span>
+            + <span class="code-string">" utisak"</span>;
+  }
+};</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section services" id="usluge" aria-labelledby="services-heading">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag reveal-up">02 — Services</span>
+                    <h2 class="section__title reveal-up" id="services-heading">
+                        Everything you need for a<br>
+                        <span class="text-gradient">successful digital presence</span>
+                    </h2>
+                </div>
+                <div class="services__grid">
+                    <article class="service-card reveal-up" data-delay="0">
+                        <div class="service-card__number" aria-hidden="true">01</div>
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Web Design</h3>
+                        <p class="service-card__text">
+                            We create vizuelno zadivljujuće i korisnički prilagođene dizajne
+                            koji pretvaraju posetioce u verne klijente.
+                        </p>
+                        <ul class="service-card__tags">
+                            <li>UI/UX</li>
+                            <li>Figma</li>
+                            <li>Prototype</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal-up" data-delay="100">
+                        <div class="service-card__number" aria-hidden="true">02</div>
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Front-end Development</h3>
+                        <p class="service-card__text">
+                            Čist, brz i optimizovan kod koji oživljava dizajn. Koristimo
+                            najnovije tehnologije za besprekorne performanse.
+                        </p>
+                        <ul class="service-card__tags">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal-up" data-delay="200">
+                        <div class="service-card__number" aria-hidden="true">03</div>
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">SEO Optimization</h3>
+                        <p class="service-card__text">
+                            Vaš sajt će se pojavljivati na vrhu Google pretrage. Tehnički i
+                            sadržajni SEO za maksimalnu vidljivost.
+                        </p>
+                        <ul class="service-card__tags">
+                            <li>Technical SEO</li>
+                            <li>Content</li>
+                            <li>Analytics</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal-up" data-delay="300">
+                        <div class="service-card__number" aria-hidden="true">04</div>
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Branding</h3>
+                        <p class="service-card__text">
+                            Gradimo prepoznatljive brendove koji komuniciraju vašu priču
+                            kroz vizuelni identitet, logo i strategiju.
+                        </p>
+                        <ul class="service-card__tags">
+                            <li>Logo</li>
+                            <li>Identity</li>
+                            <li>Strategy</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal-up" data-delay="400">
+                        <div class="service-card__number" aria-hidden="true">05</div>
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Mobile App Development</h3>
+                        <p class="service-card__text">
+                            Native i cross-platform mobilne aplikacije sa fluidnim
+                            korisničkim iskustvom za iOS i Android.
+                        </p>
+                        <ul class="service-card__tags">
+                            <li>React Native</li>
+                            <li>Flutter</li>
+                            <li>iOS/Android</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-card reveal-up" data-delay="500">
+                        <div class="service-card__number" aria-hidden="true">06</div>
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">3D & Animations</h3>
+                        <p class="service-card__text">
+                            Interaktivne 3D vizuelizacije i motion dizajn koji oživljavaju
+                            vaš sadržaj i angažuju publiku.
+                        </p>
+                        <ul class="service-card__tags">
+                            <li>Three.js</li>
+                            <li>GSAP</li>
+                            <li>Motion</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects" id="projekti" aria-labelledby="projects-heading">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag reveal-up">03 — Projects</span>
+                    <h2 class="section__title reveal-up" id="projects-heading">
+                        Our latest<br>
+                        <span class="text-gradient">digital works</span>
+                    </h2>
+                </div>
+                <div class="projects__grid">
+                    <article class="project-card project-card--large reveal-up" data-category="web">
+                        <div class="project-card__image">
+                            <div class="project-card__gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div class="project-card__overlay">
+                                <span class="project-card__view">View Project
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="project-card__info">
+                            <span class="project-card__category">Web Design</span>
+                            <h3 class="project-card__title">TechFlow Platforma</h3>
+                            <p class="project-card__desc">Modern SaaS platform for project management with real-time collaboration.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal-up" data-category="brending">
+                        <div class="project-card__image">
+                            <div class="project-card__gradient" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div class="project-card__overlay">
+                                <span class="project-card__view">View Project
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="project-card__info">
+                            <span class="project-card__category">Branding</span>
+                            <h3 class="project-card__title">Aura Kozmetika</h3>
+                            <p class="project-card__desc">Complete brand identity for a luxury cosmetics brand.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal-up" data-category="app">
+                        <div class="project-card__image">
+                            <div class="project-card__gradient" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            <div class="project-card__overlay">
+                                <span class="project-card__view">View Project
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="project-card__info">
+                            <span class="project-card__category">Aplikacija</span>
+                            <h3 class="project-card__title">FitTrack App</h3>
+                            <p class="project-card__desc">Mobile fitness tracking app with AI-powered recommendations.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card project-card--large reveal-up" data-category="web">
+                        <div class="project-card__image">
+                            <div class="project-card__gradient" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);"></div>
+                            <div class="project-card__overlay">
+                                <span class="project-card__view">View Project
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="project-card__info">
+                            <span class="project-card__category">E-commerce</span>
+                            <h3 class="project-card__title">Bloom Online Shop</h3>
+                            <p class="project-card__desc">Premium e-commerce solution with 3D product preview and AR experience.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal-up" data-category="seo">
+                        <div class="project-card__image">
+                            <div class="project-card__gradient" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                            <div class="project-card__overlay">
+                                <span class="project-card__view">View Project
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="project-card__info">
+                            <span class="project-card__category">SEO</span>
+                            <h3 class="project-card__title">GreenGrow Agencija</h3>
+                            <p class="project-card__desc">SEO strategy that increased organic traffic by 340%.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials" id="utisci" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag reveal-up">04 — Testimonials</span>
+                    <h2 class="section__title reveal-up" id="testimonials-heading">
+                        What our clients<br>
+                        <span class="text-gradient">say about us</span>
+                    </h2>
+                </div>
+                <div class="testimonials__slider" id="testimonialSlider">
+                    <div class="testimonials__track">
+                        <article class="testimonial-card">
+                            <div class="testimonial-card__stars" aria-label="5 od 5 zvezdica">★★★★★</div>
+                            <blockquote class="testimonial-card__text">
+                                "NexusStudio je potpuno transformisao naš online prisustvo. Novi sajt je
+                                neverovatan — brz, moderan i naši klijenti ga obožavaju. Konverzije su porasle za 200%."
+                            </blockquote>
+                            <div class="testimonial-card__author">
+                                <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">M</div>
+                                <div>
+                                    <cite class="testimonial-card__name">Marko Petrovic</cite>
+                                    <span class="testimonial-card__role">CEO, TechFlow</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="testimonial-card">
+                            <div class="testimonial-card__stars" aria-label="5 od 5 zvezdica">★★★★★</div>
+                            <blockquote class="testimonial-card__text">
+                                "Profesionalni, kreativni i uvek na raspolaganju. Branding koji su nam napravili
+                                je savršeno odrazio našu viziju. Toplo preporučujem svima!"
+                            </blockquote>
+                            <div class="testimonial-card__author">
+                                <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">A</div>
+                                <div>
+                                    <cite class="testimonial-card__name">Ana Jovanovic</cite>
+                                    <span class="testimonial-card__role">Founder, Aura Cosmetics</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="testimonial-card">
+                            <div class="testimonial-card__stars" aria-label="5 od 5 zvezdica">★★★★★</div>
+                            <blockquote class="testimonial-card__text">
+                                "Saradnja sa NexusStudiom je bila izvanredna od prvog dana. Razumeli su naše
+                                potrebe i isporučili aplikaciju koja prevazilazi sva naša očekivanja."
+                            </blockquote>
+                            <div class="testimonial-card__author">
+                                <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">S</div>
+                                <div>
+                                    <cite class="testimonial-card__name">Stefan Nikolic</cite>
+                                    <span class="testimonial-card__role">CTO, FitTrack</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="testimonials__nav">
+                        <button class="testimonials__btn testimonials__btn--prev" aria-label="Previous testimonial">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        </button>
+                        <div class="testimonials__dots" id="testimonialDots" role="tablist"></div>
+                        <button class="testimonials__btn testimonials__btn--next" aria-label="Next testimonial">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section cta" aria-labelledby="cta-heading">
+            <div class="container">
+                <div class="cta__card reveal-up">
+                    <div class="cta__bg" aria-hidden="true">
+                        <div class="cta__orb cta__orb--1"></div>
+                        <div class="cta__orb cta__orb--2"></div>
+                    </div>
+                    <div class="cta__content">
+                        <h2 class="cta__title" id="cta-heading">
+                            Ready to launch your<br>next big project?
+                        </h2>
+                        <p class="cta__text">
+                            Contact us today and start your journey toward digital transformation.
+                        </p>
+                        <a href="#kontakt" class="btn btn--primary btn--large">
+                            <span>Start a Conversation</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="kontakt" aria-labelledby="contact-heading">
+            <div class="container">
+                <div class="section__header">
+                    <span class="section__tag reveal-up">05 — Contact</span>
+                    <h2 class="section__title reveal-up" id="contact-heading">
+                        Let's talk about<br>
+                        <span class="text-gradient">your next project</span>
+                    </h2>
+                </div>
+                <div class="contact__grid">
+                    <div class="contact__info reveal-left">
+                        <div class="contact__item">
+                            <div class="contact__item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div>
+                                <span class="contact__item-label">Email</span>
+                                <a href="mailto:hello@nexusstudio.rs" class="contact__item-value">hello@nexusstudio.rs</a>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <div class="contact__item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <span class="contact__item-label">Telefon</span>
+                                <a href="tel:+381601234567" class="contact__item-value">+381 60 123 4567</a>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <div class="contact__item-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <span class="contact__item-label">Adresa</span>
+                                <span class="contact__item-value">Knez Mihailova 42, Belgrade</span>
+                            </div>
+                        </div>
+                        <div class="contact__socials">
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Dribbble">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact__form reveal-right" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required autocomplete="name" placeholder="Your name">
+                            <span class="form-error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" required autocomplete="email" placeholder="you@email.com">
+                            <span class="form-error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="service" class="form-label">Usluga</label>
+                            <select id="service" name="service" class="form-input form-select">
+                                <option value="">Choose a service</option>
+                                <option value="web-dizajn">Web Design</option>
+                                <option value="front-end">Front-end Development</option>
+                                <option value="seo">SEO Optimization</option>
+                                <option value="branding">Branding</option>
+                                <option value="app">Mobile App</option>
+                                <option value="3d">3D & Animations</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" required rows="5" placeholder="Describe your project..."></textarea>
+                            <span class="form-error" aria-live="polite"></span>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+                            <span class="btn__text">Send Message</span>
+                            <span class="btn__loader" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="31.4" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" values="0 12 12;360 12 12" dur="0.8s" repeatCount="indefinite"/></circle></svg>
+                            </span>
+                        </button>
+                        <div class="form-success" id="formSuccess" role="alert" aria-live="polite" hidden>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Thank you! Your message has been sent. We will get back to you shortly.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="#" class="nav__logo" aria-label="NexusStudio početna">
+                        <span class="logo-diamond">◆</span>
+                        <span class="logo-text">NEXUS<span class="logo-accent">STUDIO</span></span>
+                    </a>
+                    <p class="footer__tagline">
+                        We create digital iskustva<br>koja leave an impression.
+                    </p>
+                </div>
+                <div class="footer__links">
+                    <div class="footer__col">
+                        <h3 class="footer__col-title">Navigation</h3>
+                        <ul>
+                            <li><a href="#pocetna">Home</a></li>
+                            <li><a href="#o-nama">About</a></li>
+                            <li><a href="#usluge">Services</a></li>
+                            <li><a href="#projekti">Projects</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h3 class="footer__col-title">Services</h3>
+                        <ul>
+                            <li><a href="#usluge">Web Design</a></li>
+                            <li><a href="#usluge">Front-end</a></li>
+                            <li><a href="#usluge">SEO</a></li>
+                            <li><a href="#usluge">Branding</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h3 class="footer__col-title">Contact</h3>
+                        <ul>
+                            <li><a href="mailto:hello@nexusstudio.rs">hello@nexusstudio.rs</a></li>
+                            <li><a href="tel:+381601234567">+381 60 123 4567</a></li>
+                            <li>Knez Mihailova 42</li>
+                            <li>Belgrade, Serbia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 NexusStudio. All rights reserved.</p>
+                <div class="footer__bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
